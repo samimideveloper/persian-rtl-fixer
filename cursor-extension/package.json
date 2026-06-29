@@ -1,0 +1,50 @@
+{
+  "name": "persian-rtl-cursor",
+  "displayName": "Persian RTL Fixer",
+  "description": "Fix RTL text rendering in the Cursor AI and Agent panels",
+  "version": "1.0.0",
+  "publisher": "samimideveloper",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/samimideveloper/persian-rtl-fixer.git",
+    "directory": "cursor-extension"
+  },
+  "homepage": "https://github.com/samimideveloper/persian-rtl-fixer#readme",
+  "bugs": {
+    "url": "https://github.com/samimideveloper/persian-rtl-fixer/issues"
+  },
+  "engines": {
+    "vscode": "^1.80.0"
+  },
+  "categories": ["Other"],
+  "keywords": [
+    "persian",
+    "rtl",
+    "arabic",
+    "cursor",
+    "bidi",
+    "i18n"
+  ],
+  "activationEvents": ["onStartupFinished"],
+  "main": "./extension.js",
+  "contributes": {
+    "commands": [
+      {
+        "command": "faRtl.enable",
+        "title": "Persian RTL: Enable",
+        "category": "Persian RTL"
+      },
+      {
+        "command": "faRtl.disable",
+        "title": "Persian RTL: Disable",
+        "category": "Persian RTL"
+      },
+      {
+        "command": "faRtl.reinstall",
+        "title": "Persian RTL: Reinstall (after Cursor update)",
+        "category": "Persian RTL"
+      }
+    ]
+  }
+}

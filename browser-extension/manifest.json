@@ -1,0 +1,57 @@
+{
+  "manifest_version": 3,
+  "name": "__MSG_extName__",
+  "version": "1.0.0",
+  "description": "__MSG_extDescription__",
+  "default_locale": "en",
+
+  "icons": {
+    "16": "icons/icon16.png",
+    "48": "icons/icon48.png",
+    "128": "icons/icon128.png"
+  },
+
+  "action": {
+    "default_popup": "popup/popup.html",
+    "default_icon": {
+      "16": "icons/icon16.png",
+      "48": "icons/icon48.png"
+    },
+    "default_title": "Persian RTL Fixer"
+  },
+
+  "permissions": ["storage"],
+
+  "content_scripts": [
+    {
+      "matches": [
+        "https://chatgpt.com/*",
+        "https://chat.openai.com/*",
+        "https://claude.ai/*",
+        "https://gemini.google.com/*",
+        "https://bard.google.com/*",
+        "https://copilot.microsoft.com/*",
+        "https://www.perplexity.ai/*",
+        "https://poe.com/*",
+        "https://cursor.com/*",
+        "https://www.cursor.com/*",
+        "https://you.com/*",
+        "https://huggingface.co/chat/*",
+        "https://chat.deepseek.com/*",
+        "https://grok.com/*",
+        "https://x.com/i/grok*"
+      ],
+      "css": ["content/styles.css"],
+      "js": ["content/detector.js", "content/content.js"],
+      "run_at": "document_idle",
+      "all_frames": true
+    }
+  ],
+
+  "browser_specific_settings": {
+    "gecko": {
+      "id": "persian-rtl-fixer@samimideveloper",
+      "strict_min_version": "115.0"
+    }
+  }
+}

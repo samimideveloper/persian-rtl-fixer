@@ -1,0 +1,59 @@
+/* Bidirectional text rules for Cursor AI panels */
+
+.fa-rtl-block,
+.fa-rtl-inline {
+  unicode-bidi: plaintext !important;
+  text-align: start !important;
+}
+
+.fa-rtl-block[dir="rtl"] {
+  direction: rtl;
+}
+
+.fa-rtl-block[dir="auto"],
+.fa-rtl-inline[dir="auto"],
+.fa-rtl-mixed {
+  direction: unset;
+}
+
+.fa-rtl-mixed {
+  unicode-bidi: plaintext !important;
+}
+
+[dir="rtl"].fa-rtl-block ul,
+[dir="rtl"].fa-rtl-block ol,
+ul[dir="rtl"],
+ol[dir="rtl"] {
+  padding-inline-start: 1.5em;
+  padding-inline-end: 0;
+}
+
+pre,
+code,
+kbd,
+samp,
+.md-code-block,
+.md-clickable-code {
+  direction: ltr !important;
+  unicode-bidi: isolate !important;
+  text-align: left !important;
+}
+
+/* Cursor AI chat / composer roots */
+.anysphere-markdown-container-root,
+.markdown-root,
+.markdown-section,
+.composer-bar,
+.pane-body.aichat-pane,
+.aislash-editor-input,
+.aislash-editor-input-readonly {
+  unicode-bidi: plaintext;
+  text-align: start;
+}
+
+.anysphere-markdown-container-root .fa-rtl-block,
+.markdown-root .fa-rtl-block,
+.composer-bar .fa-rtl-block {
+  unicode-bidi: plaintext !important;
+  text-align: start !important;
+}

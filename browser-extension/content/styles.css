@@ -1,0 +1,57 @@
+/**
+ * Bidirectional text rules for RTL content in AI chat UIs.
+ */
+
+.fa-rtl-block,
+.fa-rtl-inline {
+  unicode-bidi: plaintext !important;
+  text-align: start !important;
+}
+
+.fa-rtl-block[dir="rtl"] {
+  direction: rtl;
+}
+
+.fa-rtl-block[dir="auto"],
+.fa-rtl-inline[dir="auto"],
+.fa-rtl-mixed {
+  direction: unset;
+}
+
+/* Mixed Persian + English: isolate runs correctly */
+.fa-rtl-mixed {
+  unicode-bidi: plaintext !important;
+}
+
+/* Lists in RTL */
+[dir="rtl"].fa-rtl-block ul,
+[dir="rtl"].fa-rtl-block ol,
+ul[dir="rtl"],
+ol[dir="rtl"] {
+  padding-inline-start: 1.5em;
+  padding-inline-end: 0;
+}
+
+/* Keep code blocks LTR even inside RTL messages */
+pre,
+code,
+kbd,
+samp {
+  direction: ltr !important;
+  unicode-bidi: isolate !important;
+  text-align: left !important;
+}
+
+/* Common AI markdown containers that force LTR */
+.markdown.fa-rtl-block,
+.prose.fa-rtl-block,
+[class*="message"].fa-rtl-block {
+  unicode-bidi: plaintext !important;
+}
+
+/* ChatGPT / Claude message bubbles */
+[data-message-author-role] .fa-rtl-block,
+[data-testid="conversation-turn"] .fa-rtl-block {
+  unicode-bidi: plaintext !important;
+  text-align: start !important;
+}

@@ -1,0 +1,8 @@
+{
+  "extName": {
+    "message": "Persian RTL Fixer"
+  },
+  "extDescription": {
+    "message": "Proper RTL display for Persian and mixed Persian/English text on AI websites"
+  }
+}
