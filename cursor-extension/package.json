@@ -2,7 +2,7 @@
   "name": "persian-rtl-cursor",
   "displayName": "Persian RTL Fixer",
   "description": "Fix RTL text rendering in the Cursor AI and Agent panels",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "publisher": "samimideveloper",
   "license": "MIT",
   "repository": {
