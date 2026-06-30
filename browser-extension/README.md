@@ -10,7 +10,7 @@ WebExtension (Manifest V3) that fixes RTL rendering on popular AI chat websites.
 - Microsoft Copilot
 - Perplexity, Poe, DeepSeek, Grok
 - Hugging Face Chat, You.com
-- Cursor web
+- **Cursor Cloud** (`cursor.com/agents`) — web and PWA
 
 ## Install
 

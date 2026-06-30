@@ -15,17 +15,30 @@
 
   // Site-specific roots where chat messages usually live (fallback: document.body)
   const ROOT_SELECTORS = [
+    // Cursor Cloud / cursor.com/agents
+    '.anysphere-markdown-container-root',
+    '.markdown-root',
+    '.markdown-section',
+    '.composer-bar',
+    '.pane-body.aichat-pane',
+    '.aislash-editor-input-readonly',
+    '.part.auxiliarybar',
+    // Generic AI chat UIs
     '[data-message-author-role]',
     '[data-testid="conversation-turn"]',
     '.markdown',
     '.prose',
     '.message-content',
     '.chat-message',
+    '[class*="markdown"]',
+    '[class*="composer"]',
     '[class*="message"]',
     'main',
     '[role="main"]',
     'article',
   ];
+
+  const INPUT_SELECTORS = '.aislash-editor-input, .aislash-editor-input-readonly';
 
   function loadSettings() {
     try {
@@ -108,10 +121,19 @@
   function findRoots() {
     const found = new Set();
     for (const sel of ROOT_SELECTORS) {
-      document.querySelectorAll(sel).forEach((el) => found.add(el));
+      try {
+        document.querySelectorAll(sel).forEach((el) => found.add(el));
+      } catch {
+        /* invalid selector in older browsers */
+      }
     }
+    document.querySelectorAll(INPUT_SELECTORS).forEach((el) => found.add(el));
     if (found.size === 0 && document.body) found.add(document.body);
     return found;
+  }
+
+  function isCursorInput(el) {
+    return el.matches && el.matches(INPUT_SELECTORS);
   }
 
   function processSubtree(root) {
@@ -129,13 +151,18 @@
   }
 
   function fixElement(el) {
-    if (D.shouldSkipElement(el)) return;
+    if (D.shouldSkipElement(el, INPUT_SELECTORS)) return;
 
     const text = D.getElementText(el);
     if (!text || !D.hasRtlText(text)) return;
 
     const analysis = D.analyzeText(text);
     if (!analysis.hasRtl || !analysis.direction) return;
+
+    if (isCursorInput(el)) {
+      applyFix(el, analysis);
+      return;
+    }
 
     // Leaf-ish blocks: element has little nested structure with its own RTL text
     const directText = D.getDirectTextContent(el);

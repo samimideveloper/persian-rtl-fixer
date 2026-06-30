@@ -75,10 +75,13 @@
     return (el.textContent || '').trim();
   }
 
-  function shouldSkipElement(el) {
+  function shouldSkipElement(el, inputSelectors) {
     if (!el || el.nodeType !== Node.ELEMENT_NODE) return true;
     if (SKIP_TAGS.has(el.tagName)) return true;
-    if (el.closest('code, pre, kbd, samp, textarea, input, [contenteditable="true"]')) {
+    if (el.closest('code, pre, kbd, samp, textarea, input')) return true;
+
+    const ce = el.closest('[contenteditable="true"]');
+    if (ce && ce !== el && !(inputSelectors && el.matches && el.matches(inputSelectors))) {
       return true;
     }
     if (el.hasAttribute(MARK_ATTR)) return true;

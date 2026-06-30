@@ -55,3 +55,29 @@ samp {
   unicode-bidi: plaintext !important;
   text-align: start !important;
 }
+
+/* Cursor Cloud (cursor.com/agents) */
+.anysphere-markdown-container-root,
+.markdown-root,
+.markdown-section,
+.composer-bar,
+.pane-body.aichat-pane,
+.aislash-editor-input,
+.aislash-editor-input-readonly {
+  unicode-bidi: plaintext;
+  text-align: start;
+}
+
+.anysphere-markdown-container-root .fa-rtl-block,
+.markdown-root .fa-rtl-block,
+.composer-bar .fa-rtl-block {
+  unicode-bidi: plaintext !important;
+  text-align: start !important;
+}
+
+.md-code-block,
+.md-clickable-code {
+  direction: ltr !important;
+  unicode-bidi: isolate !important;
+  text-align: left !important;
+}

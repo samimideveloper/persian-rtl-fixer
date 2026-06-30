@@ -8,7 +8,7 @@ Most AI products default to LTR layout. Persian paragraphs, mixed Persian/Englis
 
 | Package | Platform | Description |
 |---------|----------|-------------|
-| [`browser-extension`](./browser-extension) | Chrome, Firefox, Edge | Content script for web-based AI chat (ChatGPT, Claude, Gemini, etc.) |
+| [`browser-extension`](./browser-extension) | Chrome, Firefox, Edge | Content script for web-based AI chat (ChatGPT, Claude, Gemini, Cursor Cloud, etc.) |
 | [`cursor-extension`](./cursor-extension) | Cursor IDE | Workbench patch for the built-in AI / Agent panel |
 
 ## Features
